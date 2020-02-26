@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Daily Coding Problem</title>
+    </head>
+    <body>
+        <h1>20/02/2020</h1>
+        <p>This problem was recently asked by Google.
+
+            Given a list of numbers and a number k, return whether any two numbers from the list add up to k.
+            
+            For example, given [10, 15, 3, 7] and k of 17, return true since 10 + 7 is 17.</p>
+        <input type="text" id="ipvalue1" placeholder="array a,b,c"/>
+        <input type="text" id="kvalue1" placeholder="k"/>
+        <button type="button" onclick="check()">Check</button>
+        <input type="text" id="result1" placeholder="result"/>
+        
+        
+        
+        <h1>21/02/2020</h1>
+        <p>
+            Given an array of integers, return a new array such that each element at index i of the new array is the product of all the numbers in the original array except the one at i.
+
+For example, if our input was [1, 2, 3, 4, 5], the expected output would be [120, 60, 40, 30, 24]. If our input was [3, 2, 1], the expected output would be [2, 3, 6].
+        </p>
+        <input type="text" id="ipvalue2" placeholder="array a,b,c"/>
+        <button type="button" onclick="print()">Print</button>
+        <input type="text" id="result2" placeholder="result"/>
+
+    </body>
+    <script>
+
+        // 20.02.2020
+        function check(){
+            var result = []
+            var str = document.getElementById("ipvalue1").value
+            var k = Number(document.getElementById("kvalue1").value)
+            str = str.split(",")
+            for(var i = 0; i< str.length; i++){
+                var n = Number(str[i])
+                for (var j = i+1; j< str.length; j++){
+                    var m = Number(str[j])
+                    if( n + m == k){
+                        result.push([n,m])
+                    }
+                }
+            }
+            document.getElementById("result1").value = result
+        }
+
+
+        //21.02.2020
+        function print(){
+            var result = []
+            var str = document.getElementById("ipvalue2").value
+            str = str.split(",")
+            var i = str.length
+            do{
+                var head = str.shift()
+                var a = 1
+                for(var j = 0; j< str.length; j++){
+                    a = a*str[j]
+                }
+                result.push(a)
+                str.push(head)
+                i--
+            }while(i>0)
+            document.getElementById("result2").value = result
+        }
+
+
+    </script>
+</html>
+
